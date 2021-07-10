@@ -1947,14 +1947,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Love__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Love */ "./client/components/Love.js");
+/* harmony import */ var _components_Main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Main */ "./client/components/Main.js");
 
 
 
 function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "App"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Love__WEBPACK_IMPORTED_MODULE_1__.default, null));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Main__WEBPACK_IMPORTED_MODULE_1__.default, null));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
@@ -1976,10 +1976,12 @@ __webpack_require__.r(__webpack_exports__);
 
 function Heart() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    class: "heart"
+    className: "heart-shape"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "heart"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("footer", {
     id: "footer"
-  }, " ", 'Made with love by Anna & Em'));
+  }, " ", 'Made with love by Anna & Em')));
 }
 
 /***/ }),
@@ -1999,8 +2001,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Meter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Meter */ "./client/components/Meter.js");
-/* harmony import */ var _Heart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Heart */ "./client/components/Heart.js");
-
 
 
 
@@ -2017,6 +2017,7 @@ class Love extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.generatePhrase = this.generatePhrase.bind(this);
   }
 
   componentDidMount() {
@@ -2035,6 +2036,27 @@ class Love extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     });
   }
 
+  generatePhrase(pcent) {
+    let memo = {
+      0: 'Wow. Never gonna happen. Sorry boo.',
+      1: `Maybe with some emotional manipulation this might work out. Or if you're just desperate I suppose.`,
+      2: 'I hope your self worth is greater than your compatibility with this fool.',
+      3: `You're still more compatible than Kim K and Kanye.`,
+      4: 'Not exactly pb & j, but maybe pb and.... oyster sauce?',
+      5: 'Settling can be good! Not all of us were meant to shoot for the stars.',
+      6: `If you were trying to pass a test you'd fail, but you could probably do worse when it comes to love.`,
+      7: `Stunningly average. Totally satisfactory. The middle of the road aint a bad place to be.`,
+      8: `Congrats! You probably won't kill each other before you stop remembering each other's names.`,
+      9: `Go get married. You won't find anything better than this.`
+    };
+
+    if (pcent.length === 1) {
+      return memo[0];
+    } else {
+      return memo[pcent[0]];
+    }
+  }
+
   async handleSubmit(event) {
     event.preventDefault();
     let {
@@ -2050,12 +2072,13 @@ class Love extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       }
     });
     clearInterval(this.animatedMeter);
+    let phrase = this.generatePhrase(data.percentage);
     this.setState(prevState => {
       return {
         prevName1: prevState.name1,
         prevName2: prevState.name2,
         percentage: data.percentage,
-        response: data.result,
+        response: phrase,
         name1: '',
         name2: ''
       };
@@ -2072,26 +2095,56 @@ class Love extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       className: "heart-shape"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "love"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "name-contain"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Are you compatible???"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
       onSubmit: this.handleSubmit
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, " First Person: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       name: "name1",
       value: this.state.name1,
       onChange: this.handleChange,
       required: true
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, " Second Person: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       name: "name2",
       value: this.state.name2,
       onChange: this.handleChange,
       required: true
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-      type: "submit"
-    }, "Let's find out!")), this.state.response && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.prevName1), " and", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.prevName2), " are a", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.percentage, "%"), " match!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.state.response)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Heart__WEBPACK_IMPORTED_MODULE_3__.default, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Meter__WEBPACK_IMPORTED_MODULE_2__.default, {
+      type: "submit",
+      className: "submit"
+    }, "Let's find out!")), this.state.response && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.prevName1), " and", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.prevName2), " are a", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.percentage, "%"), " match!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.state.response))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Meter__WEBPACK_IMPORTED_MODULE_2__.default, {
       percent: percentage / 100,
       animate: true
     }))));
   }
 
+}
+
+/***/ }),
+
+/***/ "./client/components/Main.js":
+/*!***********************************!*\
+  !*** ./client/components/Main.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Main)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Love__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Love */ "./client/components/Love.js");
+/* harmony import */ var _Heart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Heart */ "./client/components/Heart.js");
+/* harmony import */ var _Zodiac__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Zodiac */ "./client/components/Zodiac.js");
+
+
+
+
+function Main() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "column-maker"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Love__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Heart__WEBPACK_IMPORTED_MODULE_2__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Zodiac__WEBPACK_IMPORTED_MODULE_3__.default, null));
 }
 
 /***/ }),
@@ -2153,6 +2206,27 @@ const Meter = function (props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Meter);
+
+/***/ }),
+
+/***/ "./client/components/Zodiac.js":
+/*!*************************************!*\
+  !*** ./client/components/Zodiac.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Zodiac)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+function Zodiac() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "heart-shape"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "I will be the Zodiac compatibility thingy"));
+}
 
 /***/ }),
 
