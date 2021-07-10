@@ -6,7 +6,7 @@ const Meter = function (props) {
     width = 500, // the overall width
     height = 50, // the overall height
     rounded = true, // if true, use rounded corners
-    color = 'red', // the fill color
+    color = '#96b2f2', // the fill color
     animate = false, // if true, animate when the percent changes
     label = null, // a label to describe the contents (for accessibility)
   } = props;
@@ -17,7 +17,7 @@ const Meter = function (props) {
 
   return (
     <svg width={width} height={height} aria-label={label}>
-      <rect width={width} height={height} fill="pink" rx={r} ry={r} />
+      <rect width={width} height={height} fill="#c7d7fc" rx={r} ry={r} />
       <rect
         width={w}
         height={height}

@@ -88,8 +88,7 @@ export default class Love extends React.Component {
     let percentage = this.state.percentage ? Number(this.state.percentage) : 0;
     return (
       <div className="heart-shape">
-        <div className="love">
-        <div className='name-contain'>
+    <div className='flex'>
           <h1>Are you compatible???</h1>
           <form onSubmit={this.handleSubmit}>
           <h3> First Person: </h3>
@@ -105,7 +104,7 @@ export default class Love extends React.Component {
               value={this.state.name2}
               onChange={this.handleChange}
               required
-            />
+            /> <br/><br/>
             <button type="submit" className='submit'>Let's find out!</button>
           </form>
           {this.state.response && (
@@ -115,15 +114,13 @@ export default class Love extends React.Component {
               <strong>{this.state.percentage}%</strong> match!
               <p>{this.state.response}</p>
             </div>
-          )}
-          </div>
-          <div>
-          </div>
-          <div>
+          )} 
+       <div id='meter'>
             <Meter percent={percentage / 100} animate={true} />
+            </div>
+            </div>
           </div>
-        </div>
-      </div>
+    
     );
   }
 }
