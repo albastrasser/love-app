@@ -1,10 +1,10 @@
 import React from 'react';
-import Love from './components/Love';
+import Main from './components/Main'
 
 function App() {
   return (
     <div className="App">
-      <Love />
+      <Main/>
     </div>
   );
 }

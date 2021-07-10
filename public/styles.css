@@ -1,24 +1,68 @@
-/* .heart-shape {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  box-shadow: inset 0px 0px 15px 2px #d32e24;
-  border-radius: 50%;
-  margin: auto;
-  width: 50%;
-  height: 50%;
-  padding: 10px;
-} */
+/* Main Styling */
 
-/* .love {
-  width: 90%;
-  text-align: center;
-} */
-
-* {
+#column-maker{
+  display: flex; 
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   background-image:
-  linear-gradient(to bottom, rgba(255, 183, 233, 0.52), rgba(248, 16, 113, 0.438)),
-  url('https://cdn5.vectorstock.com/i/1000x1000/60/04/tile-pastel-hearts-on-white-background-pattern-vector-10526004.jpg');}
+  linear-gradient(90deg, rgba(252,133,242,0.5242471988795518) 33%, rgba(42,226,241,0.4738270308123249) 100%),
+    url('https://cdn5.vectorstock.com/i/1000x1000/60/04/tile-pastel-hearts-on-white-background-pattern-vector-10526004.jpg');
+background-size: cover;
+height: 100vh;
+}
+
+/* Love Styling  */
+
+input {
+  border-radius: 20px;
+  box-shadow: 0px 0px 19px 0px #9B038B;
+  margin: 10px;
+  height: 50px;
+  width: 300px;
+}
+
+.name-contain{
+  position: fixed;
+  left: 0;
+  top: 20%;
+}
+
+.submit {
+  background: #fcdbf5;
+  background-image: -webkit-linear-gradient(top, #fcdbf5, #a9ddf5);
+  background-image: -moz-linear-gradient(top, #fcdbf5, #a9ddf5);
+  background-image: -ms-linear-gradient(top, #fcdbf5, #a9ddf5);
+  background-image: -o-linear-gradient(top, #fcdbf5, #a9ddf5);
+  background-image: linear-gradient(to bottom, #fcdbf5, #a9ddf5);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  text-shadow: 1px 1px 3px #85003c;
+  -webkit-box-shadow: 0px 0px 9px #a10577;
+  -moz-box-shadow: 0px 0px 9px #a10577;
+  box-shadow: 0px 0px 9px #a10577;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.submit:hover {
+  background: #ff52ff;
+  background-image: -webkit-linear-gradient(top, #ff52ff, #5ad1f5);
+  background-image: -moz-linear-gradient(top, #ff52ff, #5ad1f5);
+  background-image: -ms-linear-gradient(top, #ff52ff, #5ad1f5);
+  background-image: -o-linear-gradient(top, #ff52ff, #5ad1f5);
+  background-image: linear-gradient(to bottom, #ff52ff, #5ad1f5);
+  text-decoration: none;
+}
+
+
+
+
+/* Heart Styling */
 .heart {
   /* position: absolute; */
   margin: auto;
@@ -97,3 +141,5 @@ footer#footer {
   left: -27px;
   width: 250px;
 }
+
+
