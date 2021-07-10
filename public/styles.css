@@ -1,0 +1,95 @@
+/* .heart-shape {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  box-shadow: inset 0px 0px 15px 2px #d32e24;
+  border-radius: 50%;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  padding: 10px;
+} */
+
+/* .love {
+  width: 90%;
+  text-align: center;
+} */
+
+.heart {
+  /* position: absolute; */
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #f9b3b3;
+  height: 175px;
+  width: 175px;
+  transform: rotate(-45deg);
+  animation-name: color;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes color {
+  0% {
+    background-color: #fcd9d9;
+  }
+  50% {
+    background-color: #f9b3b3;
+  }
+  100% {
+    background-color: #fcd9d9;
+  }
+}
+
+.heart::after {
+  background-color: #f9b3b3;
+  content: '';
+  border-radius: 50%;
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  top: 0px;
+  left: 87.5px;
+  animation-name: color;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+.heart::before {
+  content: '';
+  background-color: #f9b3b3;
+  border-radius: 50%;
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  top: -87.5px;
+  left: 0px;
+  animation-name: color;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+.heart:hover {
+  transform: scale(0.9);
+}
+
+img {
+  width: 45%;
+  vertical-align: middle;
+}
+
+footer#footer {
+  text-align: center;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  padding: 10px;
+  color: grey;
+  letter-spacing: 2px;
+  font-family: sans-serif;
+  position: relative;
+  top: 165px;
+  left: -27px;
+  width: 250px;
+}
