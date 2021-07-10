@@ -2221,11 +2221,90 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Zodiac)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
 
 function Zodiac() {
+  const [zodiac1, setZodiac1] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('aries');
+  const [zodiac2, setZodiac2] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('aries');
+  const [result, setResult] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    let {
+      data
+    } = await axios__WEBPACK_IMPORTED_MODULE_1___default().get(`https://devbrewer-horoscope.p.rapidapi.com/match/${zodiac1}/${zodiac2}`, {
+      headers: {
+        'x-rapidapi-key': '1b635f7110msh54611c9723c6c1ep1f205fjsn47e519dd187e',
+        'x-rapidapi-host': 'devbrewer-horoscope.p.rapidapi.com'
+      }
+    });
+    console.log(data);
+    setResult(data.Result);
+  }
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "heart-shape"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "I will be the Zodiac compatibility thingy"));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Okay but are your Zodiac signs compatible???"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    htmlFor: "zodiac1"
+  }, " First Person's Zodiac Sign"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+    name: "zodiac1",
+    onChange: event => setZodiac1(event.target.value)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "aries"
+  }, "Aries"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "taurus"
+  }, "Taurus"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "gemini"
+  }, "Gemini"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "cancer"
+  }, "Cancer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "leo"
+  }, "Leo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "virgo"
+  }, "Virgo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "libra"
+  }, "Libra"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "scorpio"
+  }, "Scorpio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "capricorn"
+  }, "Capricorn"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "aquarius"
+  }, "Aquarius"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "pisces"
+  }, "Pisces")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    htmlFor: "zodiac2"
+  }, " Second Person's Zodiac Sign"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+    name: "zodiac2",
+    onChange: event => setZodiac2(event.target.value)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "aries"
+  }, "Aries"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "taurus"
+  }, "Taurus"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "gemini"
+  }, "Gemini"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "cancer"
+  }, "Cancer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "leo"
+  }, "Leo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "virgo"
+  }, "Virgo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "libra"
+  }, "Libra"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "scorpio"
+  }, "Scorpio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "capricorn"
+  }, "Capricorn"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "aquarius"
+  }, "Aquarius"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "pisces"
+  }, "Pisces")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "submit"
+  }, "Worth a shot...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, result ? result : null));
 }
 
 /***/ }),
