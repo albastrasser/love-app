@@ -24,7 +24,7 @@ export default function Zodiac() {
     <div className="heart-shape">
       <h1>Okay but are your Zodiac signs compatible???</h1><br/>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="zodiac1"> First Person's Zodiac Sign</label><br/>
+        <label htmlFor="zodiac1"> <h3>First Person's Zodiac Sign:</h3></label><br/>
         <select
           name="zodiac1"
           onChange={(event) => setZodiac1(event.target.value)}
@@ -41,7 +41,7 @@ export default function Zodiac() {
           <option value="aquarius">Aquarius</option>
           <option value="pisces">Pisces</option>
         </select><br/>
-        <label htmlFor="zodiac2"> Second Person's Zodiac Sign</label><br/>
+        <label htmlFor="zodiac2"><h3> Second Person's Zodiac Sign:</h3></label><br/>
         <select
           name="zodiac2"
           onChange={(event) => setZodiac2(event.target.value)}
