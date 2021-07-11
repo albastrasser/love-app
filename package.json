@@ -19,6 +19,8 @@
     "@babel/register": "^7.14.5",
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
+    "dotenv": "^10.0.0",
+    "dotenv-webpack": "^7.0.3",
     "express": "^4.17.1",
     "framer-motion": "^4.1.17",
     "morgan": "^1.10.0",

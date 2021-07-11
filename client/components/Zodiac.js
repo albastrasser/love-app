@@ -5,14 +5,14 @@ export default function Zodiac() {
   const [zodiac1, setZodiac1] = useState('aries');
   const [zodiac2, setZodiac2] = useState('aries');
   const [result, setResult] = useState('');
+
   async function handleSubmit(event) {
     event.preventDefault();
     let { data } = await axios.get(
       `https://devbrewer-horoscope.p.rapidapi.com/match/${zodiac1}/${zodiac2}`,
       {
         headers: {
-          'x-rapidapi-key':
-            '1b635f7110msh54611c9723c6c1ep1f205fjsn47e519dd187e',
+          'x-rapidapi-key': process.env.REACT_APP_ZODIACLOVEKEY,
           'x-rapidapi-host': 'devbrewer-horoscope.p.rapidapi.com',
         },
       }
