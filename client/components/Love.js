@@ -112,7 +112,7 @@ export default class Love extends React.Component {
             </button>
           </form>
           {this.state.response && (
-            <div>
+            <div id='res'>
               <strong>{this.state.prevName1}</strong> and{' '}
               <strong>{this.state.prevName2}</strong> are a{' '}
               <strong>{this.state.percentage}%</strong> match!

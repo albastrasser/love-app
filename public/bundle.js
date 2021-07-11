@@ -2157,7 +2157,9 @@ class Love extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     }), ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
       type: "submit",
       className: "submit"
-    }, "Let's find out!")), this.state.response && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.prevName1), " and", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.prevName2), " are a", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.percentage, "%"), " match!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.state.response)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    }, "Let's find out!")), this.state.response && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      id: "res"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.prevName1), " and", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.prevName2), " are a", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.state.percentage, "%"), " match!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.state.response)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       id: "meter"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Meter__WEBPACK_IMPORTED_MODULE_2__.default, {
       percent: percentage / 100,
@@ -2307,7 +2309,7 @@ function Zodiac() {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
     htmlFor: "zodiac1"
-  }, " First Person's Zodiac Sign"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "First Person's Zodiac Sign:")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
     name: "zodiac1",
     onChange: event => setZodiac1(event.target.value),
     id: "input"
@@ -2335,7 +2337,7 @@ function Zodiac() {
     value: "pisces"
   }, "Pisces")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
     htmlFor: "zodiac2"
-  }, " Second Person's Zodiac Sign"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, " Second Person's Zodiac Sign:")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
     name: "zodiac2",
     onChange: event => setZodiac2(event.target.value),
     id: "input"
