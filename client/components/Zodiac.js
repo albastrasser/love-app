@@ -17,17 +17,18 @@ export default function Zodiac() {
         },
       }
     );
-    console.log(data);
-    setResult(data.Result);
+    let zodiacMatch = data.Result.split('.').slice(0,4).join('. ')
+    setResult(zodiacMatch + '!')
   }
   return (
     <div className="heart-shape">
-      <h1>Okay but are your Zodiac signs compatible???</h1>
+      <h1>Okay but are your Zodiac signs compatible???</h1><br/>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="zodiac1"> First Person's Zodiac Sign</label>
+        <label htmlFor="zodiac1"> First Person's Zodiac Sign</label><br/>
         <select
           name="zodiac1"
-          onChange={(event) => setZodiac1(event.target.value)}>
+          onChange={(event) => setZodiac1(event.target.value)}
+          id='input'>
           <option value="aries">Aries</option>
           <option value="taurus">Taurus</option>
           <option value="gemini">Gemini</option>
@@ -39,11 +40,12 @@ export default function Zodiac() {
           <option value="capricorn">Capricorn</option>
           <option value="aquarius">Aquarius</option>
           <option value="pisces">Pisces</option>
-        </select>
-        <label htmlFor="zodiac2"> Second Person's Zodiac Sign</label>
+        </select><br/>
+        <label htmlFor="zodiac2"> Second Person's Zodiac Sign</label><br/>
         <select
           name="zodiac2"
-          onChange={(event) => setZodiac2(event.target.value)}>
+          onChange={(event) => setZodiac2(event.target.value)}
+          id='input'>
           <option value="aries">Aries</option>
           <option value="taurus">Taurus</option>
           <option value="gemini">Gemini</option>
@@ -55,10 +57,10 @@ export default function Zodiac() {
           <option value="capricorn">Capricorn</option>
           <option value="aquarius">Aquarius</option>
           <option value="pisces">Pisces</option>
-        </select>
-        <button type="submit">Worth a shot...</button>
+        </select><br/><br/>
+        <button type="submit" className='submit'>Worth a shot...</button>
       </form>
-      <div>{result ? result : null}</div>
+      <div id='zodres'>{result ? result : null}</div>
     </div>
   );
 }
