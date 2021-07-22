@@ -1973,13 +1973,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Routes)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _components_Zodiac__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Zodiac */ "./client/components/Zodiac.js");
 /* harmony import */ var _components_Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Nav */ "./client/components/Nav.js");
 /* harmony import */ var _components_Heart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Heart */ "./client/components/Heart.js");
 /* harmony import */ var _components_Love__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Love */ "./client/components/Love.js");
-/* eslint-disable react/jsx-filename-extension */
+/* harmony import */ var _components_LoveLetter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/LoveLetter */ "./client/components/LoveLetter.js");
+
 
 
 
@@ -1988,19 +1989,22 @@ __webpack_require__.r(__webpack_exports__);
 
 class Routes extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
   render() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       id: "column-maker"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
       component: _components_Nav__WEBPACK_IMPORTED_MODULE_2__.default
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
       component: _components_Heart__WEBPACK_IMPORTED_MODULE_3__.default
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
       exact: true,
       path: "/",
       component: _components_Love__WEBPACK_IMPORTED_MODULE_4__.default
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
       path: "/zodiac",
       component: _components_Zodiac__WEBPACK_IMPORTED_MODULE_1__.default
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
+      path: "/loveletter",
+      component: _components_LoveLetter__WEBPACK_IMPORTED_MODULE_5__.default
     }))));
   }
 
@@ -2167,6 +2171,54 @@ class Love extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     }))));
   }
 
+}
+
+/***/ }),
+
+/***/ "./client/components/LoveLetter.js":
+/*!*****************************************!*\
+  !*** ./client/components/LoveLetter.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ LoveLetter)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function LoveLetter() {
+  const [loveLetters, setLoveLetters] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [counter, setCounter] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
+
+  function navigate(event) {
+    if (event.target.name === 'next') {
+      if (counter === 9) setCounter(0);else setCounter(counter + 1);
+    } else {
+      if (counter === 0) setCounter(9);else setCounter(counter - 1);
+    }
+  }
+
+  async function handleClick() {
+    let {
+      data
+    } = await axios__WEBPACK_IMPORTED_MODULE_1___default().post('https://rosalove-emekaborisama.cloud.okteto.net/loveletterlong');
+    setLoveLetters(data.result);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Need a Love Letter?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    onClick: handleClick
+  }, "Press this for 10 Love Letters"), loveLetters.length !== 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, loveLetters[counter]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    name: "back",
+    onClick: navigate
+  }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    name: "next",
+    onClick: navigate
+  }, "Next")));
 }
 
 /***/ }),
